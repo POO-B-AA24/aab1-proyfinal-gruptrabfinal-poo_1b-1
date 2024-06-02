@@ -3,7 +3,7 @@ import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
-
+//assdfsa
 public class EntradaEstadistica {
     public ArrayList<Factura> Facturas;
     public ObjectInputStream flujoEntradaEsta;
