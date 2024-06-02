@@ -1,8 +1,6 @@
-public class SalidaEstadistica {
-    package salidaestadistica;
-    import java.io.FileOutputStream;
-    import java.io.ObjectOutputStream;
-    import java.util.ArrayList;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 public class SalidaEstadistica {
     public ArrayList <Estadistica> listEstadisticas;
     public ObjectOutputStream flujoSalidaEstadistica;
@@ -26,6 +24,9 @@ public class SalidaEstadistica {
     }
 }
      
+
+    
+
 
     
 
