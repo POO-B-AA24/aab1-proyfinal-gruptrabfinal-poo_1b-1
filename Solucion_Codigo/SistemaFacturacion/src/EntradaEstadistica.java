@@ -5,7 +5,7 @@ import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
 public class EntradaEstadistica {
-    public ArrayList<Estadistica> listEstadistica;
+    public ArrayList<Factura> Facturas;
     public ObjectInputStream flujoEntradaEsta;
     public FileInputStream pathArchivo;
 
@@ -13,14 +13,13 @@ public class EntradaEstadistica {
         this.pathArchivo = pathArchivo;
     }
     
-    public ArrayList<Estadistica> lecturaEstadisticaArchivo() {
-        listEstadistica = new ArrayList<Estadistica>();
+    public ArrayList<Factura> lecturaEstadisticaArchivo() {
         try {
             flujoEntradaEsta = new ObjectInputStream(pathArchivo);
             while (true) {
                 try {
-                    Estadistica est = (Estadistica) flujoEntradaEsta.readObject();
-                    listEstadistica.add(est);
+                    Factura factura = (Factura) flujoEntradaEsta.readObject();
+                    Facturas.add(factura);
                 } catch (EOFException   endOffileException) {
                     break;
                 }
@@ -31,6 +30,6 @@ public class EntradaEstadistica {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return listEstadistica;
+        return Facturas;
     }
 }
