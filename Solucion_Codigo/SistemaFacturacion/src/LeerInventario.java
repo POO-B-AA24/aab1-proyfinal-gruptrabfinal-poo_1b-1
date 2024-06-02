@@ -5,10 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class EntradaInventario {
-    public static List<Producto> leerInventario(String archivo) {
+public class LeerInventario {
+    public List<Producto> leerInventario(String archivo) {
         List<Producto> inventario = new ArrayList<>();
-
         try (Scanner tecladoanner = new Scanner(new File(archivo))) {
             while (tecladoanner.hasNextLine()) {
                 String linea = tecladoanner.nextLine();
@@ -19,7 +18,6 @@ public class EntradaInventario {
                 int cantidad = Integer.parseInt(partes[3].trim());
                 String categoria = partes[4].trim();
                 String caducidad = partes[5].trim();
-
                 Producto producto = new Producto(codigo, nombre, precio, cantidad, categoria, caducidad);
                 inventario.add(producto);
             }

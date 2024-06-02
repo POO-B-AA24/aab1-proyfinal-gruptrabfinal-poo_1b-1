@@ -138,6 +138,11 @@ public class Factura {
 
     @Override
     public String toString() {
-        return "Factura{" + "carrito=" + carrito + ", subTotal=" + subTotal + ", sumaDescuentos=" + sumaDescuentos + ", subDescuentoAfiliado=" + subDescuentoAfiliado + ", iva=" + iva + ", subIva=" + subIva + ", total=" + total + ", cliente=" + cliente + ", cedula=" + cedula + ", direccion=" + direccion + ", numFactura=" + numFactura + ", fecha=" + fecha + ", autorizacionSRI=" + autorizacionSRI + ", formaPago=" + formaPago + ", alimentacionD=" + alimentacionD + ", educacionD=" + educacionD + ", hogarD=" + hogarD + ", vestimentaD=" + vestimentaD + ", saludD=" + saludD + '}';
+        return "Factura{" + "carrito=" + carrito + ", subTotal=" + subTotal + ", sumaDescuentos=" + sumaDescuentos
+                + ", subDescuentoAfiliado=" + subDescuentoAfiliado + ", iva=" + iva + ", subIva=" + subIva + ", total="
+                + total + ", cliente=" + cliente + ", cedula=" + cedula + ", direccion=" + direccion + ", numFactura="
+                + numFactura + ", fecha=" + fecha + ", autorizacionSRI=" + autorizacionSRI + ", formaPago=" + formaPago
+                + ", alimentacionD=" + alimentacionD + ", educacionD=" + educacionD + ", hogarD=" + hogarD
+                + ", vestimentaD=" + vestimentaD + ", saludD=" + saludD + '}';
     }
 }

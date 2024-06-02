@@ -4,7 +4,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class SalidaInventario {
-    public ArrayList <Producto> listInventario;
+    public ArrayList<Producto> listInventario;
     public ObjectOutputStream flujoSalidaEstadistica;
     public FileOutputStream pathArchivo;
 
@@ -12,7 +12,8 @@ public class SalidaInventario {
         this.listInventario = listEstadisticas;
         this.pathArchivo = pathArchivo;
     }
-    public void salidaEstadisticaArchivo(){
+
+    public void salidaEstadisticaArchivo() {
         try {
             this.flujoSalidaEstadistica = new ObjectOutputStream(pathArchivo);
             for (Producto invt : listInventario) {

@@ -1,11 +1,10 @@
 
-
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class SalidaFactura {
-    public ArrayList <Factura> listFactura;
+    public ArrayList<Factura> listFactura;
     public ObjectOutputStream flujoSalidaEstadistica;
     public FileOutputStream pathArchivo;
 
@@ -13,7 +12,8 @@ public class SalidaFactura {
         this.listFactura = listFactura;
         this.pathArchivo = pathArchivo;
     }
-    public void salidaFacturaArchivo(){
+
+    public void salidaFacturaArchivo() {
         try {
             this.flujoSalidaEstadistica = new ObjectOutputStream(pathArchivo);
             for (Factura fact : listFactura) {

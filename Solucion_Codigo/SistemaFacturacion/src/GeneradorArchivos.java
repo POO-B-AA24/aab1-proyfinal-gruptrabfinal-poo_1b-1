@@ -30,7 +30,7 @@ public class GeneradorArchivos {
         DecimalFormat df = new DecimalFormat("#.00");
         File facturas = new File(rutaFactura);
 
-        try (FileWriter fw = new FileWriter(facturas, true)) {
+        try (FileWriter fw = new FileWriter(rutaFactura, true)) {
             if (!facturas.exists()) {
                 facturas.createNewFile();
             }
@@ -100,7 +100,7 @@ public class GeneradorArchivos {
         for (Factura factura : listFacturas) {
             for (Producto producto : factura.carrito) {
                 try (FileWriter fw = new FileWriter(rutaEstadistica, true)) {
-                    File archivo = new File("Estadistica\\Estadisticas.csv");
+                    File archivo = new File(rutaEstadistica);
                     if (archivoVacio(rutaEstadistica)) {
                         fw.write(factura.fecha + ";" + producto.codigo + ";" + producto.nombre + ";"
                                 + producto.categoria + ";" + producto.cantidad + "\r\n");

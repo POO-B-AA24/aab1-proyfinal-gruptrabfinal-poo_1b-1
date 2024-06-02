@@ -3,20 +3,23 @@ import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
+import java.util.List;
+
 
 public class EntradaFactura {
-    public ArrayList<Factura> listFactura;
+    public List<Factura> listFactura;
     public ObjectInputStream flujoEntradaFact;
     public FileInputStream pathArchivo;
 
     public EntradaFactura(FileInputStream pathArchivo) {
         this.pathArchivo = pathArchivo;
     }
-    public ArrayList lecturaFacturaArchivo(){
+
+    public List<Factura> lecturaFacturaArchivo() {
         listFactura = new ArrayList<Factura>();
         try {
             flujoEntradaFact = new ObjectInputStream(pathArchivo);
-            while(true){
+            while (true) {
                 try {
                     Factura fact = (Factura) flujoEntradaFact.readObject();
                     listFactura.add(fact);
@@ -25,12 +28,11 @@ public class EntradaFactura {
                 }
             }
             flujoEntradaFact.close();
-        } catch(ClassNotFoundException classNotfoundException) {
+        } catch (ClassNotFoundException classNotfoundException) {
             System.out.println("Clase no encontrada: " + classNotfoundException.getMessage());
-        } 
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        return listFactura;  
+        return listFactura;
     }
 }
