@@ -6,26 +6,26 @@ public class Factura {
     // fecha
 
     // Atributos
-    private List<Producto> carrito = new ArrayList<>();
-    private double subTotal;//
-    private double sumaDescuentos;//
-    private double subDescuentoAfiliado;//
-    private double iva = 0.15;//
-    private double subIva;//
-    private double total;
-    private String cliente;//
-    private int cedula;//
-    private String direccion;//
-    private int numFactura;//
-    private String fecha;
-    private int autorizacionSRI;//
-    private String formaPago;
-    private int alimentacionD;//
-    private int educacionD;//
-    private int hogarD;//
-    private int vestimentaD;//
-    private int saludD;//
-    private double descuentoAfiliado = 0.05;
+    public List<Producto> carrito = new ArrayList<>();
+    public double subTotal;//
+    public double sumaDescuentos;//
+    public double subDescuentoAfiliado;//
+    public double iva = 0.15;//
+    public double subIva;//
+    public double total;
+    public String cliente;//
+    public int cedula;//
+    public String direccion;//
+    public int numFactura;//
+    public String fecha;
+    public int autorizacionSRI;//
+    public String formaPago;
+    public int alimentacionD;//
+    public int educacionD;//
+    public int hogarD;//
+    public int vestimentaD;//
+    public int saludD;//
+    public double descuentoAfiliado = 0.05;
 
     // Constructor
     // a carrito ya se debe enviar con la cantidad restada al inventario
