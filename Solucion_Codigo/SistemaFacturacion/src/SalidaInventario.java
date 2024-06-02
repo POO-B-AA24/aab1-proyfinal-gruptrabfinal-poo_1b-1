@@ -1,23 +1,23 @@
 
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
+import java.util.List;
 
 public class SalidaInventario {
-    public ArrayList<Producto> listInventario;
-    public ObjectOutputStream flujoSalidaEstadistica;
+    public List<Producto> listInventario;
+    public ObjectOutputStream flujoSalidainventario;
     public FileOutputStream pathArchivo;
 
-    public SalidaInventario(ArrayList<Producto> listEstadisticas, FileOutputStream pathArchivo) {
-        this.listInventario = listEstadisticas;
+    public SalidaInventario(List<Producto> listinventario, FileOutputStream pathArchivo) {
+        this.listInventario = listinventario;
         this.pathArchivo = pathArchivo;
     }
 
-    public void salidaEstadisticaArchivo() {
+    public void salidaInventarioArchivo() {
         try {
-            this.flujoSalidaEstadistica = new ObjectOutputStream(pathArchivo);
-            for (Producto invt : listInventario) {
-                flujoSalidaEstadistica.writeObject(invt);
+            this.flujoSalidainventario = new ObjectOutputStream(pathArchivo);
+            for (Producto producto : listInventario) {
+                flujoSalidainventario.writeObject(producto);
             }
         } catch (Exception e) {
         }

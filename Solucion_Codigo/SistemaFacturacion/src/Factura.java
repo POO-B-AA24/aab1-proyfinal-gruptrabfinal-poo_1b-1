@@ -1,8 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.io.Serializable;
 
-public class Factura {
+public class Factura implements Serializable{
     // fecha
 
     // Atributos
