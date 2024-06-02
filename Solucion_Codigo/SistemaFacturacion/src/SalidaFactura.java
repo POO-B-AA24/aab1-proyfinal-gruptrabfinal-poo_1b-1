@@ -1,23 +1,24 @@
 
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
+import java.util.List;
+
 
 public class SalidaFactura {
-    public ArrayList<Factura> listFactura;
-    public ObjectOutputStream flujoSalidaEstadistica;
+    public List<Factura> listFactura;
+    public ObjectOutputStream flujoSalidaFactura;
     public FileOutputStream pathArchivo;
 
-    public SalidaFactura(ArrayList<Factura> listFactura, FileOutputStream pathArchivo) {
+    public SalidaFactura(List<Factura> listFactura, FileOutputStream pathArchivo) {
         this.listFactura = listFactura;
         this.pathArchivo = pathArchivo;
     }
 
     public void salidaFacturaArchivo() {
         try {
-            this.flujoSalidaEstadistica = new ObjectOutputStream(pathArchivo);
+            this.flujoSalidaFactura = new ObjectOutputStream(pathArchivo);
             for (Factura fact : listFactura) {
-                flujoSalidaEstadistica.writeObject(fact);
+                flujoSalidaFactura.writeObject(fact);
             }
         } catch (Exception e) {
         }

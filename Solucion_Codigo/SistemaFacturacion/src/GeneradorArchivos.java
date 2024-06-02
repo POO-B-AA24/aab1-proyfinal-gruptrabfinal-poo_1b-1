@@ -26,7 +26,7 @@ public class GeneradorArchivos {
         generarEstadistica();
     }
 
-    public void generarFactura() {
+    private void generarFactura() {
         DecimalFormat df = new DecimalFormat("#.00");
         File facturas = new File(rutaFactura);
 
@@ -84,7 +84,7 @@ public class GeneradorArchivos {
         }
     }
 
-    public void generarInventario() {
+    private void generarInventario() {
         try (FileWriter fw = new FileWriter(rutaInventario)) {
             for (Producto producto : inventario) {
                 fw.write(producto.codigo + ";" + producto.nombre + ";" + producto.precio + ";"
@@ -96,7 +96,7 @@ public class GeneradorArchivos {
         }
     }
 
-    public void generarEstadistica() {
+    private void generarEstadistica() {
         for (Factura factura : listFacturas) {
             for (Producto producto : factura.carrito) {
                 try (FileWriter fw = new FileWriter(rutaEstadistica, true)) {
@@ -119,7 +119,7 @@ public class GeneradorArchivos {
 
     }
 
-    public static boolean archivoVacio(String archivo) {
+    private boolean archivoVacio(String archivo) {
         File file = new File(archivo);
         if (!file.exists()) {
             return false;
