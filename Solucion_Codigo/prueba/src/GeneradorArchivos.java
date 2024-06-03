@@ -28,8 +28,7 @@ public class GeneradorArchivos {
     }
 
     private void generarFactura() {
-        DecimalFormat formato = new DecimalFormat("#.##");
-
+        DecimalFormat df = new DecimalFormat("#.00");
         File facturas = new File(rutaFactura);
 
         try (FileWriter fw = new FileWriter(rutaFactura, true)) {
@@ -37,12 +36,6 @@ public class GeneradorArchivos {
                 facturas.createNewFile();
             }
             for (Factura factura : listFacturas) {
-                String cadena_subTotal = formato.format(factura.subTotal);
-                String cadena_subIva = formato.format(factura.subIva);
-                String cadena_sumaDescuentos = formato.format(factura.sumaDescuentos);
-                String cadena_subDescuentoAfiliado = formato.format(factura.subDescuentoAfiliado);
-                String cadena_total = formato.format(factura.total);
-
                 fw.write(
                         "----------------------------------------------- SUPERMAXI -----------------------------------------------;\r\n");
                 fw.write(
@@ -57,7 +50,7 @@ public class GeneradorArchivos {
                         "---------------------------------------------------------------------------------------------------------;\r\n");
                 fw.write("COD;Descipcion;Cant;Descuento;PrecioU;Total\r\n");
                 for (Producto producto : factura.carrito) {
-                    String formatoTotal = String.format(formato.format(producto.precio * producto.cantidad));
+                    String formatoTotal = String.format(df.format(producto.precio * producto.cantidad));
 
                     fw.write(producto.codigo + ";" + producto.nombre + ";" + producto.cantidad + ";"
                             + producto.descuento + ";" + producto.precio + ";"
@@ -65,12 +58,12 @@ public class GeneradorArchivos {
                 }
                 fw.write(
                         "---------------------------------------------------------------------------------------------------------;\r\n");
-                fw.write("SUBTOTAL;" + cadena_subTotal + ";\r\n");
-                fw.write("DESCUENTO;" + cadena_sumaDescuentos + ";\r\n");
-                fw.write("AHORRO POR AFILIACION;" + cadena_subDescuentoAfiliado + ";\r\n");
+                fw.write("SUBTOTAL;" + df.format(factura.subTotal) + ";\r\n");
+                fw.write("DESCUENTO;" + df.format(factura.sumaDescuentos) + ";\r\n");
+                fw.write("AHORRO POR AFILIACION;" + df.format(factura.subDescuentoAfiliado) + ";\r\n");
                 fw.write("IVA;" + factura.iva + "%" + ";\r\n");
-                fw.write("SUBIVA;" + cadena_subIva + ";\r\n");
-                fw.write("TOTAL;" + cadena_total + ";\r\n");
+                fw.write("SUBIVA;" + factura.subIva + ";\r\n");
+                fw.write("TOTAL;" + factura.total + ";\r\n");
                 fw.write("--------------------------------------------------------\r\n");
                 fw.write("CLIENTE;" + factura.cliente + ";\r\n");
                 fw.write("CEDULA;" + factura.cedula + ";\r\n");
@@ -100,7 +93,7 @@ public class GeneradorArchivos {
                         + "\r\n");
             }
         } catch (Exception e) {
-            System.out.println("ERROR EN GENERAR INVENTARIO " + e);
+            System.out.println("ERROR EN GENERAR INVENTARIO "+ e);
         }
     }
 

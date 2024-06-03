@@ -85,7 +85,7 @@ public class Factura implements Serializable{
 
     public void calcularDescuentos() {
         for (Producto producto : carrito) {
-            this.sumaDescuentos += producto.descuento;
+            sumaDescuentos += producto.descuento;
         }
     }
 
@@ -122,20 +122,19 @@ public class Factura implements Serializable{
 
     public void calcularTotal() {
         if (verificarAfiliado()) {
-            this.total = subTotal - (subTotal*sumaDescuentos);
-            this.subDescuentoAfiliado = total * descuentoAfiliado;
-            this.total = total - subDescuentoAfiliado;
-            this.subIva = total * iva;
-            this.total = total + subIva;
+            this.total = this.subTotal - (this.subTotal * this.sumaDescuentos);
+            this.subDescuentoAfiliado = this.total * this.descuentoAfiliado;
+            this.total -= this.subDescuentoAfiliado;
+            this.subIva = this.total * this.iva;
+            this.total += this.subIva;
         } else {
-            this.total = subTotal - (subTotal*sumaDescuentos);
-            this.subDescuentoAfiliado = 0;
-            this.subIva = total * iva;
-            this.total = total + subIva;
+            this.total = this.subTotal - (this.subTotal * this.sumaDescuentos);
+            this.subIva = this.total * this.iva;
+            this.total += this.subIva;
         }
     }
     
-    /*@Override
+    @Override
     public String toString() {
         return "Factura{" + "carrito=" + carrito + ", subTotal=" + subTotal + ", sumaDescuentos=" + sumaDescuentos
                 + ", subDescuentoAfiliado=" + subDescuentoAfiliado + ", iva=" + iva + ", subIva=" + subIva + ", total="
@@ -143,5 +142,5 @@ public class Factura implements Serializable{
                 + numFactura + ", fecha=" + fecha + ", autorizacionSRI=" + autorizacionSRI + ", formaPago=" + formaPago
                 + ", alimentacionD=" + alimentacionD + ", educacionD=" + educacionD + ", hogarD=" + hogarD
                 + ", vestimentaD=" + vestimentaD + ", saludD=" + saludD + '}';
-    }*/
+    }
 }

@@ -40,7 +40,7 @@ public class SistemaFacturacion {
     }
 
     public void iniciarSistema(){
-        List<Factura> listFacturas = listaDeFacturas(10, fecha);
+        List<Factura> listFacturas = listFacturas(10, fecha);
         GeneradorArchivos generadorArchivos = new GeneradorArchivos(listFacturas, inventario, rutaFacturas, rutaEstadistica, rutaInventario);
         generadorArchivos.generarArchivos();
         serializarObjetos(listFacturas, inventario);
@@ -94,8 +94,9 @@ public class SistemaFacturacion {
     }
 
     public void deserializarFactura(List<Factura> listFacturas){
+        FileInputStream facturasFIS;
         try {
-        FileInputStream facturasFIS = new FileInputStream(pathFacturas);
+            facturasFIS = new FileInputStream(pathFacturas);
             EntradaFactura entradaFactura = new EntradaFactura(facturasFIS);
             facturasDeserializadas = entradaFactura.lecturaFacturaArchivo();
         } catch (FileNotFoundException e) {
@@ -134,14 +135,14 @@ public class SistemaFacturacion {
         return carrito;
     }
 
-    public List<Factura> listaDeFacturas(int limFacturas, String fecha) {
+    public List<Factura> listFacturas(int limFacturas, String fecha) {
         List<Producto> carrito = new ArrayList<>();
-        List<Factura> facturas = new ArrayList<>();
+        List<Factura> facturas = new ArrayList<Factura>();
         for (int i = 0; i < limFacturas; i++) {
             carrito = generadorCarrito();
-            Factura fact = new Factura(carrito, cliente, cedula, direccion, fecha);
-            fact.procesoFactura();
-            facturas.add(fact);
+            Factura factura = new Factura(carrito, cliente, cedula, direccion, fecha);
+            factura.procesoFactura();
+            facturas.add(factura);
         }
         return facturas;
     }
