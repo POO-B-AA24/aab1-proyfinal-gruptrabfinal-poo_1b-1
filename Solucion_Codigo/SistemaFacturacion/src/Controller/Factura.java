@@ -6,32 +6,29 @@ import java.util.Random;
 import java.io.Serializable;
 
 public class Factura implements Serializable{
-    // fecha
 
     // Atributos
     public List<Producto> carrito = new ArrayList<>();
-    public double subTotal;//
-    public double sumaDescuentos;//
-    public double subDescuentoAfiliado;//
-    public double iva = 0.15;//
-    public double subIva;//
+    public double subTotal;
+    public double sumaDescuentos;
+    public double subDescuentoAfiliado;
+    public double iva = 0.15;
+    public double subIva;
     public double total;
-    public String cliente;//
-    public int cedula;//
-    public String direccion;//
-    public int numFactura;//
+    public String cliente;
+    public int cedula;
+    public String direccion;
+    public int numFactura;
     public String fecha;
-    public int autorizacionSRI;//
+    public int autorizacionSRI;
     public String formaPago;
-    public int alimentacionD;//
-    public int educacionD;//
-    public int hogarD;//
-    public int vestimentaD;//
-    public int saludD;//
+    public int alimentacionD;
+    public int educacionD;
+    public int hogarD;
+    public int vestimentaD;
+    public int saludD;
     public double descuentoAfiliado = 0.05;
 
-    // Constructor
-    // a carrito ya se debe enviar con la cantidad restada al inventario
     public Factura(List<Producto> carrito, String cliente, int cedula,
             String direccion, String fecha) {
         this.carrito = carrito;
@@ -137,7 +134,7 @@ public class Factura implements Serializable{
         }
     }
     
-    /*@Override
+    @Override
     public String toString() {
         return "Factura{" + "carrito=" + carrito + ", subTotal=" + subTotal + ", sumaDescuentos=" + sumaDescuentos
                 + ", subDescuentoAfiliado=" + subDescuentoAfiliado + ", iva=" + iva + ", subIva=" + subIva + ", total="
@@ -145,5 +142,5 @@ public class Factura implements Serializable{
                 + numFactura + ", fecha=" + fecha + ", autorizacionSRI=" + autorizacionSRI + ", formaPago=" + formaPago
                 + ", alimentacionD=" + alimentacionD + ", educacionD=" + educacionD + ", hogarD=" + hogarD
                 + ", vestimentaD=" + vestimentaD + ", saludD=" + saludD + '}';
-    }*/
+    }
 }
