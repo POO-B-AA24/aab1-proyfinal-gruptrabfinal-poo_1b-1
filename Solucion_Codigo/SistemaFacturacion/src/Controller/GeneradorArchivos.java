@@ -3,6 +3,9 @@ package Controller;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.ConnectException;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.List;
 
@@ -25,7 +28,7 @@ public class GeneradorArchivos {
     public void generarArchivos() {
         generarFactura();
         generarInventario();
-        generarEstadistica();
+        generarArchivoEstadistica();
     }
 
     private void generarFactura() {
@@ -105,7 +108,7 @@ public class GeneradorArchivos {
         }
     }
 
-    private void generarEstadistica() {
+    private void generarArchivoEstadistica() {
         for (Factura factura : listFacturas) {
             for (Producto producto : factura.carrito) {
                 try (FileWriter fw = new FileWriter(rutaEstadistica, true)) {
