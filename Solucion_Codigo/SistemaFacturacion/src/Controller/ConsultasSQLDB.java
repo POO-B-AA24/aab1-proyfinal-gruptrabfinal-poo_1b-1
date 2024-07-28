@@ -92,7 +92,7 @@ public class ConsultasSQLDB {
     }
 
     public void insertarRegistroTablaClientes(Connection con, int cedula, String nombre, String direccion, int telefono)
-            throws SQLException {
+        throws SQLException {
         String querry = "INSERT INTO cliente (cedula, nombre, direccion, telefono) VALUES (?,?,?,?)";
         try (PreparedStatement ps = con.prepareStatement(querry)) {
             ps.setInt(1, cedula);
