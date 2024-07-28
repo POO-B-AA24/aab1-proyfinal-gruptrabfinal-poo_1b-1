@@ -16,7 +16,7 @@ public class LeerInventarioDB {
             ResultSet rs = query.leerRegistroTabla(con, "productos");
             while (rs.next()) {
                 int codigo = rs.getInt("codigo");
-                String nombre =  rs.getString("codigo");
+                String nombre =  rs.getString("nombre");
                 double precio =  rs.getDouble("precio");
                 int cantidad =  rs.getInt("cantidad");
                 String categoria =  rs.getString("categoria");
